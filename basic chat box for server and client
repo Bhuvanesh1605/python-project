@@ -1,0 +1,24 @@
+def reciverfun(msg):
+    cond = True
+    while cond:
+        reciver = ' '
+        print("sender:", msg)
+        try:
+            reciver = input()
+        except KeyboardInterrupt:
+            print("sender is wating send msg faster")
+        if reciver == "finsh":
+            cond = False
+        return reciver
+chat = ""
+sender = ""
+cond_ser = True
+while cond_ser:
+    try:
+        sender = input()
+    except KeyboardInterrupt:
+        print("reciver is wating send msg faster")
+    chat = sender
+    print("reciver:", reciverfun(chat))
+    if sender == "finsh":
+        cond_ser = False
