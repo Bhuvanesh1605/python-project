@@ -1,51 +1,27 @@
-class TodoList:
-    def __init__(self):
-        self.tasks = []
+todoList1 = []
 
-    def add_task(self, task):
-        self.tasks.append(task)
-        print("Task added successfully!")
 
-    def remove_task(self, task):
-        if task in self.tasks:
-            self.tasks.remove(task)
-            print("Task removed successfully!")
-        else:
-            print("Task not found in the list.")
+def TodoList(work):
+    todoList1.append(work)
 
-    def view_tasks(self):
-        if self.tasks:
-            print("Your todo list:")
-            for index, task in enumerate(self.tasks, start=1):
-                print(f"{index}. {task}")
-        else:
-            print("Your todo list is empty.")
 
-def main():
-    todo_list = TodoList()
-    
-    while True:
-        print("\nMenu:")
-        print("1. Add Task")
-        print("2. Remove Task")
-        print("3. View Tasks")
-        print("4. Exit")
-        
-        choice = input("Enter your choice: ")
+def updateWork():
+    for i in range(0, len(todoList1)-1):
+        print(i, todoList1[i])
+    finished_work = input().split()
+    for i in finished_work:
+        print("Remaning work has to be done \n", todoList1[:-1])
+        try:
+            todoList1.remove(todoList1[int(i)])
+        except IndexError:
+            print(" you choose wrong task ")
 
-        if choice == '1':
-            task = input("Enter the task to add: ")
-            todo_list.add_task(task)
-        elif choice == '2':
-            task = input("Enter the task to remove: ")
-            todo_list.remove_task(task)
-        elif choice == '3':
-            todo_list.view_tasks()
-        elif choice == '4':
-            print("Exiting...")
-            break
-        else:
-            print("Invalid choice. Please try again.")
 
-if __name__ == "__main__":
-    main()
+cond= True
+while cond :
+    user_work = input()
+    TodoList(user_work)
+    if user_work == "done":
+        print("Select what are the work you complete:")
+        updateWork()
+        cond = False
